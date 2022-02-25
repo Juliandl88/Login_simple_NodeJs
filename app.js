@@ -32,8 +32,10 @@ app.use(session({
 //8- Invocamos el módulo de conexión de la base de datos
 const conection = require("./database/db");
 
+//9- Estableciendo las rutas
+
 app.get('/', (req, res) => {
-    res.send('Hello World!');  
+    res.render('index');  
 });
 
 app.listen(3000, (req, res) => {
