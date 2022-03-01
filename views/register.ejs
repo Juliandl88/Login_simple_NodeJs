@@ -1,54 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="resources/css/style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/style.css">
     <title>Register</title>
-  </head>
-  <body>
+</head>
+<body>
     <div class="register-form">
-      <h1>Form register</h1>
-      <form action="register" method="post">
-        <label for="user">User</label>
-        <input type="text" name="user" required />
+		<h1>Form Registration</h1>
+		<form action="/register" method="POST">
+            <label for="user">User</label>
+                <input type="text" name="user" tabindex="1" autofocus>            
+            <label for="user">Full Name</label>
+                <input type="text" name="name" tabindex="2">
+            
+            <label for="rol">Rol</label>                          
+            <select id="rol" name="rol" class="select-css" tabindex="3">
+                <option value="admin" selected>Admin</option>
+                <option value="data entry">Data Entry</option>                    
+            </select>
+             <br> 
+            <label for="pass">Password</label>
+			    <input type="password" name="pass" required tabindex="4">
+            <div style="display: inline;">             
+            <a href="/" class="btn-cancel">Cancel</a><input type="submit" class="btn-save" value="Save">           
+            </div>
+		</form>		
+	</div>
 
-        <label for="name">Full name</label>
-        <input type="text" name="name" required />
+    		
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-        <label for="pass">Password</label>
-        <input type="password" name="pass" required />
-
-        <label for="rol">Rol</label>
-        <select name="rol" id="rol" class="select-css">
-          <option value="admin" selected>Administrador</option>
-          <option value="data entry" selected>Data Entry</option>
-        </select>
-
-        <div style="display: flex">
-          <input type="submit" value="Save" class="btn-save" />
-          <a href="/" class="btn-cancel">Cancel</a>
-        </div>
-      </form>
-    </div>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <% if (typeof alert != "undefined"){ %>
-    <script>
-      Swal.fire({
-          title: '<%= alertTitle %>',
-          text: '<%= alertMessage %>',
-          icon: '<%= alertIcon %>',
-          showConfirmButton: '<%= showConfirmButton: %>',
-          timer: '<%= alert.title %>',
-        }).then(() => {
-
-            window.location='/ <%= ruta %>'
-        });
-    </script>
-    <% } %>
-  </body>
-
-  
+<% if (typeof alert != "undefined")  { %>
+ <script>
+ Swal.fire({
+   title:'<%= alertTitle %>',
+   text:'<%= alertMessage %>',
+   icon:'<%= alertIcon %>',
+   showConfirmButton: <%= showConfirmButton %>,
+   timer: <%= timer %>
+ }).then(()=>{
+   window.location='/<%= ruta %>'
+ })
+ </script>
+<% } %>
+ </div>
+</body>
 </html>
